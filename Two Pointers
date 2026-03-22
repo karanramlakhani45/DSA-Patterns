@@ -46,3 +46,24 @@ public:
       
     }
 };
+
+
+2.Search in Rotated Sorted Array
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        int c=0;
+        int n=nums.size();
+        for(int i=0;i<n;i++){
+            if(nums[i]==target){
+                return i;
+                c++;
+            }
+        }
+        if(c!=1){
+            return -1;
+        }
+       
+        return -1;
+    }
+};
