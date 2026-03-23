@@ -21,3 +21,30 @@ public:
         return a;
     }
 };
+
+
+2.Maximum Sum of Distinct Subarrays With Length K
+class Solution {
+public:
+    long long maximumSubarraySum(vector<int>& nums, int k) {
+        set<int> s;
+        long currsum=0;
+        long maxsum=0;
+        int l=0;
+        int n=nums.size();
+        for(int r=0;r<n;r++){
+            while(s.contains(nums[r]) || s.size()==k){
+                s.erase(nums[l]);
+                currsum-=nums[l];
+                l++;
+            }
+            currsum+=nums[r];
+            s.insert(nums[r]);
+            if(s.size()==k){
+                maxsum=max(currsum,maxsum);
+            }
+        }
+        return maxsum;
+
+    }
+};
