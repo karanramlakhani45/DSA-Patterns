@@ -73,3 +73,38 @@ public:
         return a;
     }
 };
+
+
+
+4.Minimum Size Subarray Sum
+class Solution {
+public:
+    int minSubArrayLen(int target, vector<int>& nums) {
+        int l=0;
+        vector<int> s;
+        
+        int n=nums.size();
+        // vector<int> c(n);
+        int ans=n+1;
+        s.erase(remove(s.begin(),s.end(),0),s.end());
+        // c.erase(remove(c.begin(),c.end(),0),c.end());
+        int sum=0;
+        for(int r=0;r<n;r++){
+            s.push_back(nums[r]);
+            sum+=nums[r];
+            while(sum>=target){
+                // c.push_back(s.size());
+                ans=min(r-l+1,ans);
+                s.erase(s.begin()+l);
+                sum-=nums[l];
+                l++;
+            }
+             
+        }
+        // int a=*min_element(c.begin(),c.end());
+        return ans==n+1?0:ans;
+        
+        // return a;
+
+    }
+};
