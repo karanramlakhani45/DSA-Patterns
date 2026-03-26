@@ -1,0 +1,21 @@
+1.Find Pivot Index
+class Solution {
+public:
+    int pivotIndex(vector<int>& nums) {
+        int ls=0;
+        int rs=0;
+        int n=nums.size();
+        int ts=0;
+        for(int j=0;j<n;j++){
+            ts+=nums[j];
+        }
+        for(int i=0;i<n;i++){
+            rs=ts-ls-nums[i];
+            if(rs==ls){
+                return i;
+            }
+            ls+=nums[i];
+        }
+        return -1;
+    }
+};
