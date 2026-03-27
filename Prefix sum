@@ -19,3 +19,34 @@ public:
         return -1;
     }
 };
+
+
+
+2.Subarray Sum Equals K
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        int n=nums.size();
+        vector<int> ps(n,0);
+        ps[0]=nums[0];
+        for(int j=1;j<n;j++){
+            ps[j]=ps[j-1]+nums[j];
+        }
+        int c=0;
+        unordered_map<int ,int> m;
+        for(int i=0;i<n;i++){
+            int val=ps[i]-k;
+            if(ps[i]==k){
+                c++;
+            }
+            if(m.find(val)!=m.end()){
+                c+=m[val];
+            }
+            if(m.find(ps[i])==m.end()){
+                m[ps[i]]=0;
+            }
+            m[ps[i]]++;
+        }
+        return c;
+    }
+};
