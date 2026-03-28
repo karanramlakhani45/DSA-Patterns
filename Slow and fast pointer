@@ -43,7 +43,7 @@ Move fast two steps.
 while (fast != null && fast.next != null) {
 slow = slow.next;
 fast = fast.next.next;
-...
+..
 }
 Step 3: Watch for a meeting point
 If slow == fast → there is a cycle (for detection problems).
