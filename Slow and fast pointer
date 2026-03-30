@@ -1,5 +1,5 @@
 What is the Fast and Slow Pointers Pattern?
-The Fast and Slow Pointers pattern (also known as Floyd's Cycle Detection Algorithm or the
+The Fast and Slow Pointers pattern (also known as Floyd's Cycle Detection Algorithm or the 
 Tortoise and Hare technique) is a two-pointer strategy used to efficiently traverse data
 structures where:
 Elements are connected in a sequence (e.g., linked list, number transformations, circular
