@@ -21,9 +21,11 @@ public:
     }
     bool ispalindrome(string s,int start,int end){
         while(start<=end){
-            if(s[start++]!=s[end--]){
+            if(s[start]!=s[end]){
             return false;
             }
+            start++;
+            end--;
         }
         return true;
     }
